@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Steps Section</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<style type="text/css">
+		.theme-color {
+			color: #C9A35D;
+		}
+
+		.steps-container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 50px 15px;
+		}
+
+		.step-block {
+			display: flex;
+			position: relative;
+		}
+
+		.step-block .border {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 30px;
+			width: 30px;
+			border-width: 1.5px 0 0 1.5px;
+			border-style: solid;
+			border-radius: 30px 0 0 0;
+		}
+
+		.step-block .border:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: -5px;
+			background: #000;
+			width: 10px;
+			height: 10px;
+			border-radius: 100%;
+		}
+
+		.step-block:last-child .border {
+			border-width: 0 1.5px 1.5px 0;
+			border-radius: 0 0 30px 0;
+			left: auto;
+			right: 0;
+			bottom: -0.8px;
+			top: 30px;
+		}
+
+		.step-block:last-child .border:after {
+			left: auto;
+			right: -5px;
+			bottom: auto;
+		}
+
+		.step-block:last-child .border-bottom:after {
+			content: '';
+			height: 1.5px;
+			position: absolute;
+			left: 30px;
+			right: 30px;
+			bottom: -0.8px;
+			border-bottom: 1px solid;
+		}
+
+		.step-block:nth-child(odd):after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 30px;
+			right: 0;
+			bottom: 0;
+			border-width: 1.5px 1.5px 1.5px 0;
+			border-style: solid;
+			border-radius: 0 30px 30px 0;
+		}
+
+		.step-block:nth-child(even):after {
+			content: '';
+			position: absolute;
+			top: -0.5px;
+			right: 0px;
+			left: 1.5px;
+			bottom: -0.8px;
+			border-width: 0 0 0 1.5px;
+			border-style: solid;
+			border-radius: 30px 0 0 30px;
+		}
+
+
+		.step-block .numbersection {
+			flex: 20%;
+			font-size: 70px;
+			text-align: center;
+			padding: 40px 20px;
+			min-width: 20%;
+			max-width: 20%;
+			position: relative;
+		}
+
+		.step-block:nth-child(odd) .numbersection {
+			border-right: 2px solid #C9A35D;
+		}
+
+		.step-block:nth-child(even) .numbersection {
+			border-left: 2px solid #C9A35D;
+		}
+
+		.step-block .contentsection {
+			flex: 80%;
+			max-width: 80%;
+			position: relative;
+		}
+
+		.step-block:nth-child(odd) .contentsection {
+			padding: 20px 20px 20px 80px;
+		}
+
+		.step-block:nth-child(even) .contentsection {
+			padding: 20px 80px 20px 20px;
+		}
+
+		.step-block .contentsection strong {
+			display: block;
+			font-size: 22px;
+			margin: 0 0 10px;
+		}
+
+		.step-block .contentsection p {
+			margin: 0;
+		}
+
+		.arrow {
+			position: absolute;
+			top: 75%;
+			left: 27px;
+			transform: rotate(90deg);
+		}
+
+		.arrow::before,
+		.arrow::after {
+		  content: "";
+		  width: 0;
+		  height: 0;
+		  position: absolute;
+		}
+
+		.arrow::before {
+		  border-left: 32px solid transparent;
+			border-right: 32px solid transparent;
+			border-bottom: 32px solid #C9A35D;
+			top: -5px;
+			right: 10px;
+		}
+
+		.arrow::after {
+		  border-left: 31px solid transparent;
+		    border-right: 31px solid transparent;
+		    border-bottom: 31px solid #fff;
+		    top: 5px;
+    		right: 11px;
+		}
+
+		.step-block .numbersection .arrow {
+			top: 25%;
+			left: -27px;
+			transform: rotate(270deg);
+		}
+
+		@media only screen and (max-width: 767.98px) {
+			.step-block {
+				display: block;
+			}
+
+			.step-block .contentsection,
+			.step-block .numbersection {
+				min-width: auto;
+				max-width: 100%;
+			}
+
+			.step-block:nth-child(even) .numbersection,
+			.step-block:nth-child(odd) .numbersection {
+				border: none;
+			}
+
+			.arrow {
+				display: none;
+			}
+
+			.step-block:nth-child(even) .contentsection,
+			.step-block:nth-child(odd) .contentsection {
+				padding: 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="steps-container">
+		<div class="step-block">
+			<div class="border"></div>
+			<div class="numbersection">
+				<i class="fa fa-window-restore theme-color" aria-hidden="true"></i>
+				<strong class="number">1</strong>
+			</div>
+			<div class="contentsection">
+				<div class="arrow"></div>
+				<strong class="title theme-color">Submit consult request</strong>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+			</div>
+		</div>
+		<div class="step-block">
+			<div class="contentsection">
+				<strong class="title theme-color">Submit consult request</strong>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+			</div>
+			<div class="numbersection">
+				<div class="arrow"></div>
+				<strong class="number">2</strong>
+				<i class="fa fa-window-restore theme-color" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="step-block">
+			<div class="numbersection">
+				<i class="fa fa-window-restore theme-color" aria-hidden="true"></i>
+				<strong class="number">3</strong>
+			</div>
+			<div class="contentsection">
+				<div class="arrow"></div>
+				<strong class="title theme-color">Submit consult request</strong>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+			</div>
+		</div>
+		<div class="step-block">
+			<div class="border"></div>
+			<div class="border-bottom"></div>
+			<div class="contentsection">
+				<strong class="title theme-color">Submit consult request</strong>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+			</div>
+			<div class="numbersection">
+				<div class="arrow"></div>
+				<strong class="number">4</strong>
+				<i class="fa fa-window-restore theme-color" aria-hidden="true"></i>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
